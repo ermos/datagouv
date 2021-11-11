@@ -5,9 +5,8 @@ import (
 )
 
 func TestGetCommunesByDepartmentOK(t *testing.T) {
-	c, err := GetCommunesByDepartment(CommunesByDepartmentParameters{
+	c, err := GetCommunesByDepartment("72", CommunesByDepartmentParameters{
 		Fields: []string{ "name", "code" , "codesPostaux" },
-		Code: "72",
 	})
 	if err != nil {
 		t.Error(err)
@@ -20,7 +19,7 @@ func TestGetCommunesByDepartmentOK(t *testing.T) {
 }
 
 func TestGetCommunesByDepartmentWithoutCode(t *testing.T) {
-	_, err := GetCommunesByDepartment(CommunesByDepartmentParameters{})
+	_, err := GetCommunesByDepartment("", CommunesByDepartmentParameters{})
 	if err == nil {
 		t.Error("no error ?")
 	}

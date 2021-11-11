@@ -21,8 +21,12 @@ type Commune struct {
 	} `json:"region"`
 	Population int `json:"population"`
 	Surface    int `json:"surface"`
-	Centre     struct {
+	Centre struct {
+		Type        string    `json:"type"`
+		Coordinates []float64 `json:"coordinates"`
 	} `json:"centre"`
 	Contour struct {
+		Type        string        `json:"type"`
+		Coordinates [][][]float64 `json:"coordinates"`
 	} `json:"contour"`
 }

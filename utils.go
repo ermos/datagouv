@@ -96,7 +96,7 @@ func runRequest(req *http.Request, v interface{}) (err error) {
 
 		err = json.Unmarshal(body, &errStruct)
 		if err != nil {
-			return
+			return fmt.Errorf("api error (%d): not found", res.StatusCode)
 		}
 
 		return fmt.Errorf("api error (%d): %s", errStruct.Code, errStruct.Message)
